@@ -59,13 +59,15 @@
       err.textContent = 'Please enter an email address we can send them to.';
       err.hidden = false; form.elements.email.focus(); return;
     }
+    var consentBox = form.elements.consent;
+    var consent = !!(consentBox && consentBox.checked);
     var token = '';
     try { token = (window.turnstile && window.turnstile.getResponse()) || ''; } catch (_) {}
 
     btn.disabled = true; btn.textContent = 'Sending…';
     fetch(API, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, turnstile: token })
+      body: JSON.stringify({ name: name, email: email, consent: consent, turnstile: token })
     })
     .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
     .then(function (res) {
@@ -83,6 +85,10 @@
       if (bar) bar.hidden = false;
       var to = gate.querySelector('[data-sentto]');
       if (to) to.textContent = email;
+      var cn = gate.querySelector('[data-consentnote]');
+      if (cn) cn.textContent = consent
+        ? 'You are on the monthly list too — one email a month, and you can stop any time.'
+        : 'This was a one-off. We will not email you again unless you ask.';
       gate.classList.add('sent');
       var first = document.querySelector('.coupon');
       if (first && first.scrollIntoView) first.scrollIntoView({ behavior: 'smooth', block: 'center' });

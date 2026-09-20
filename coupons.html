@@ -59,13 +59,17 @@
           <div><label for="aa-email">Email address</label>
             <input id="aa-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
         </div>
+        <label class="consent">
+          <input type="checkbox" name="consent" value="yes">
+          <span>Send me next month&rsquo;s coupons too. One email a month, and I can stop any time.</span>
+        </label>
         <div class="cf-turnstile" data-sitekey="1x00000000000000000000BB" data-size="invisible" data-appearance="interaction-only"></div>
         <button type="submit">🖨️ Send my printable coupons</button>
         <p class="err" data-err hidden></p>
       </form>
       <div class="done">
         <b>Check your inbox.</b>
-        Your <b>printable coupons</b> are on the way to <span data-sentto>you</span>, and the codes have unlocked above. Print them here with the button, or from the email whenever suits.
+        Your <b>printable coupons</b> are on the way to <span data-sentto>you</span>, and the codes have unlocked above. Print them here with the button, or from the email whenever suits.<br><span data-consentnote class="cnote"></span>
       </div>
       <p class="fine">We never share your address. One email a month, and you can leave any time.<br>
       In a hurry? Call <a href="tel:+15203499606" style="color:#fff">(520) 349-9606</a> &mdash; someone answers 24/7.</p>
