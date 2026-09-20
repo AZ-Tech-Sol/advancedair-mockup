@@ -140,3 +140,7 @@ footer.site a{color:#c3cde6}
   .printonly{display:block!important}
 }
 .printonly{display:none}
+
+/* footer logo needs a light ground — the mark's navy half disappears on #0d1530 */
+.fgrid .logochip{background:#fff;border-radius:10px;padding:12px 14px;display:inline-block;margin-bottom:14px}
+.fgrid .logochip img{width:180px;margin:0}
