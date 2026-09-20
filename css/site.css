@@ -178,3 +178,21 @@ ul.ticks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--red)
 .coupon .code span{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;color:#7a8698;font-weight:700}
 .coupon .code b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1rem;color:var(--ink);letter-spacing:.02em}
 @media print{ .coupon .code{border:1px solid #000;background:#fff} .coupon .code b{font-size:12pt} }
+
+/* Print density: the code box pushed the sheet to one coupon per page, which is three
+   sheets of a customer's paper for three offers. Verified by re-rendering the PDF. */
+@media print{
+  .coupon{padding:14pt 16pt 12pt}
+  .coupon .brandline{margin-bottom:7pt}
+  .coupon .brandline img{width:100pt}
+  .coupon .amt{font-size:30pt}
+  .coupon h3{font-size:13pt;margin:.2em 0 .2em}
+  .coupon .blurb{font-size:10pt;margin-bottom:.5em}
+  .coupon .code{padding:5pt 9pt;margin-bottom:7pt}
+  .coupon .printphone{font-size:12pt;margin-bottom:3pt}
+  .coupon .foot{padding-top:7pt;font-size:8pt}
+  .coupons{gap:12pt}
+  section{padding:0}
+  h1{font-size:19pt;margin-bottom:.2em}
+  .center .sub{font-size:10pt;margin-bottom:.8em}
+}
