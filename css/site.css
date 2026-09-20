@@ -308,6 +308,16 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
 @media(max-width:620px){ .gate .row2{grid-template-columns:1fr} }
 @media print{ .gate,.coupon .lockrow .lbl{display:none!important} }
 
+
+/* the navy gate panel — this base rule was lost when the vault experiment was
+   reverted, which left the form rendering on the page background. */
+.gate{background:linear-gradient(160deg,var(--navy) 0%,#101c56 100%);color:#e8edf7;
+  border-radius:16px;padding:42px 34px;text-align:center;box-shadow:var(--shadow)}
+.gate h2{color:#fff}
+.gate p{color:#c3cde6;max-width:56ch;margin:0 auto 1.6em}
+.gate .fine{font-size:.82rem;color:#96a5c8;margin:1.3em auto 0}
+.gate .fine a{color:#fff}
+
 /* ---- gate form styling, matched to the site (Angel, 2026-09-20) ------------
    The inputs were bare boxes on a navy panel and the Turnstile widget stretched
    the full width. Both now sit in the same visual language as the rest. */
@@ -324,7 +334,7 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
   box-shadow:0 0 0 4px rgba(216,38,46,.22),inset 0 1px 2px rgba(22,37,107,.08)}
 .gate .row2{display:grid;gap:12px;grid-template-columns:1fr 1.3fr;margin-bottom:14px;text-align:left}
 /* the widget is a fixed 300px box — centre it and never let it stretch */
-.gate .cf-turnstile{display:flex;justify-content:center;margin:0 0 14px;min-height:65px}
+.gate .cf-turnstile{display:flex;justify-content:center;margin:0;min-height:0}
 .gate .cf-turnstile iframe{max-width:100%!important}
 .gate button{width:100%;padding:16px 28px;border:0;border-radius:10px;background:var(--red);
   color:#fff;font-weight:800;font-size:1.04rem;font-family:inherit;cursor:pointer;
