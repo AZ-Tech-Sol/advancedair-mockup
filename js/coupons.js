@@ -23,6 +23,7 @@
         '<div class="cta noprint"><a href="tel:+1' + esc(data.phone).replace(/\D/g, '') + '">' +
           'Call ' + esc(data.phone) + '</a></div>' +
         '<div class="foot">' +
+          '<span class="printphone printonly">' + esc(data.phone) + '</span>' +
           '<span class="exp">' + esc(data.expires_label) + '</span><br>' +
           esc(data.terms) +
         '</div>' +

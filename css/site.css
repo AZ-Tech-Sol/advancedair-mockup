@@ -144,3 +144,10 @@ footer.site a{color:#c3cde6}
 /* footer logo needs a light ground — the mark's navy half disappears on #0d1530 */
 .fgrid .logochip{background:#fff;border-radius:10px;padding:12px 14px;display:inline-block;margin-bottom:14px}
 .fgrid .logochip img{width:180px;margin:0}
+
+/* A coupon cut off the page must still carry the phone number — the call-to-action
+   button is .noprint, and the 2021 originals printed the number on every coupon. */
+@media print{
+  .coupon .printphone{display:block;font-size:14pt;font-weight:900;color:#000;
+    letter-spacing:-.01em;margin-bottom:5pt}
+}
