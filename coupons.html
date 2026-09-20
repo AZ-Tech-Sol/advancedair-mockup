@@ -33,23 +33,38 @@
 <section>
   <div class="wrap">
     <div class="center">
-      <h1>Current coupons</h1>
-      <p class="sub">Tell us where to send them and the coupons &mdash; codes and all &mdash; land in your inbox in a moment. Print them or keep them on your phone, then mention the code when you schedule.</p>
+      <h1>Printable coupons</h1>
+      <p class="sub">Tell us where to send them and we&rsquo;ll email you a <b>printable coupon</b> for each offer &mdash; code and all. Print it, bring it with you, or just mention the code when you schedule.</p>
       <p class="noprint" style="margin-top:-1em">
-        <a class="btn btn-call" href="https://example.invalid/form">📧 Send me all three coupons</a>
+        <a class="btn btn-call" href="#get">🖨️ Email me printable coupons</a>
       </p>
     </div>
 
+    <p class="noprint center" data-printbar hidden style="margin-bottom:22px">
+      <a class="btn btn-call" href="javascript:window.print()">🖨️ Print my coupons</a>
+    </p>
     <div class="coupons" id="coupons-all"></div>
   </div>
 </section>
 
 <section class="alt" id="get">
   <div class="wrap">
-    <div class="gate">
+    <div class="gate" data-gate>
       <h2>Where should we send them?</h2>
-      <p>One short form and this month&rsquo;s coupons arrive in your inbox &mdash; the $500 trade-in, the $59 service call and the $149 maintenance visit, each with the code you mention when you schedule.</p>
-      <p><a class="btn btn-call" href="https://example.invalid/form">📧 Send me the coupons</a></p>
+      <p>One short form and we&rsquo;ll email you all three as <b>printable coupons</b> &mdash; the $500 trade-in, the $59 service call and the $149 maintenance visit. Print them off, or mention the code when you call. The codes unlock on this page straight away too.</p>
+      <form novalidate>
+        <div class="row2">
+          <input type="text" name="name" placeholder="First name" aria-label="First name" autocomplete="given-name">
+          <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+        </div>
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="flexible"></div>
+        <button type="submit">🖨️ Send my printable coupons</button>
+        <p class="err" data-err hidden></p>
+      </form>
+      <div class="done">
+        <b>Check your inbox.</b>
+        Your <b>printable coupons</b> are on the way to <span data-sentto>you</span>, and the codes have unlocked above. Print them here with the button, or from the email whenever suits.
+      </div>
       <p class="fine">We never share your address. One email a month, and you can leave any time.<br>
       In a hurry? Call <a href="tel:+15203499606" style="color:#fff">(520) 349-9606</a> &mdash; someone answers 24/7.</p>
     </div>
@@ -85,6 +100,7 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="js/coupons.js"></script>
 </body>
 </html>

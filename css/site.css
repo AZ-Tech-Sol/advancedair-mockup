@@ -209,31 +209,101 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
   footer.site a[href^="tel:"]{display:block;text-align:center}
 }
 
-/* ---- LOCKED coupons (2026-09-20) ------------------------------------------
-   The offer is visible because that is the marketing; the CODE and the printable
-   coupon are not, because a visible coupon gets screenshotted and we never get the
-   address. The email is the mechanism, so the email is the only way to the code. */
-.coupon.locked .lockrow{display:flex;align-items:center;gap:10px;border:1px dashed #c3ccda;
+
+/* ===== THE COUPON VAULT ===================================================
+   Coupons sit underneath, obfuscated. The email panel lies on top with a
+   peeled corner. Filling it in peels the panel away. (Angel, 2026-09-20)
+   The codes are NOT in this page — they come from the Worker on success. */
+.vault{position:relative;isolation:isolate}
+.vault-coupons{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  filter:blur(7px) saturate(.55);transform:scale(.985);opacity:.85;
+  transition:filter .75s cubic-bezier(.2,.7,.2,1),transform .75s,opacity .75s;
+  user-select:none;pointer-events:none}
+.vault.opened .vault-coupons{filter:none;transform:none;opacity:1;user-select:auto;pointer-events:auto}
+
+/* the panel lying on top */
+.peel{position:absolute;inset:-10px;z-index:2;display:grid;place-items:center;
+  transition:transform .95s cubic-bezier(.3,.8,.25,1),opacity .8s ease .15s}
+.peel-inner{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 10px 30px rgba(22,37,107,.14),0 40px 80px rgba(22,37,107,.13);
+  padding:36px 34px 28px;max-width:520px;width:min(100%,520px);text-align:center;
+  /* the top-right corner is clipped away — that is the peel */
+  clip-path:polygon(0 0, calc(100% - 58px) 0, 100% 58px, 100% 100%, 0 100%)}
+.peel-inner h3{font-size:1.45rem;margin-bottom:.4em}
+.peel-inner p{font-size:.98rem;margin-bottom:1.2em}
+/* the lifted flap itself */
+.peel-corner{position:absolute;top:0;right:0;width:58px;height:58px;
+  background:linear-gradient(225deg,#ffffff 0%,#eef2f8 46%,#cfd8e6 100%);
+  clip-path:polygon(100% 0, 0 0, 100% 100%);
+  box-shadow:-3px 3px 10px rgba(22,37,107,.28);
+  transform-origin:100% 0;transition:transform .5s cubic-bezier(.3,.8,.25,1)}
+.peel-inner:hover .peel-corner{transform:rotate(-9deg) translate(-3px,3px)}
+.peel form{display:block}
+.peel .row2{display:grid;gap:10px;grid-template-columns:1fr 1.25fr;margin-bottom:12px}
+.peel input{width:100%;padding:14px 16px;border-radius:10px;border:2px solid var(--line);
+  font-size:16px;font-family:inherit;background:#fff}
+.peel input:focus{outline:none;border-color:var(--red)}
+.peel .cf-turnstile{display:flex;justify-content:center;margin-bottom:12px;min-height:36px}
+.peel button{width:100%;padding:15px 24px;border:0;border-radius:10px;background:var(--red);
+  color:#fff;font-weight:800;font-size:1.02rem;font-family:inherit;cursor:pointer;
+  box-shadow:0 6px 20px rgba(216,38,46,.28)}
+.peel button:hover:not(:disabled){background:var(--red-2)}
+.peel button:disabled{opacity:.65;cursor:default}
+.peel .err{color:var(--red);font-size:.9rem;margin:.8em 0 0;font-weight:600}
+.peel .fine{font-size:.82rem;color:#7a8698;margin:1.1em 0 0}
+
+/* peeling away */
+.vault.opened .peel{transform:translate(26%,-16%) rotate(11deg);opacity:0;pointer-events:none}
+.revealed-note{text-align:center;color:var(--body);margin:22px auto 0;max-width:60ch;font-size:.98rem}
+.revealed-note b{color:var(--ink)}
+
+@media(max-width:620px){
+  .peel{inset:-6px}
+  .peel-inner{padding:28px 22px 22px}
+  .peel .row2{grid-template-columns:1fr}
+}
+@media print{ .peel{display:none!important} .vault-coupons{filter:none!important;opacity:1!important;transform:none!important} }
+@media (prefers-reduced-motion: reduce){
+  .vault-coupons,.peel,.peel-corner{transition:none}
+}
+
+/* ---- Locked coupons + the embedded gate (Angel, 2026-09-20) ---------------
+   The OFFER is visible because that is the marketing; the CODE is not, because a
+   visible coupon gets screenshotted and we never get the address. The code is not
+   in this page at all — it comes back from the Cloudflare Worker on success, so
+   the lock is real rather than cosmetic. */
+.coupon .lockrow{display:flex;align-items:center;gap:10px;border:1px dashed #c3ccda;
   background:repeating-linear-gradient(135deg,#f7f9fc,#f7f9fc 9px,#eef2f8 9px,#eef2f8 18px);
-  border-radius:8px;padding:12px 14px;margin-bottom:13px;color:#6b7788;font-size:.9rem;font-weight:600}
-.coupon.locked .lockrow .lk{font-size:1rem;opacity:.75}
-.coupon.locked .foot{border-top:1px solid var(--line);padding-top:11px;font-size:.8rem;color:#7a8698}
-.coupon.locked .cta a{display:block;text-align:center;background:var(--navy);color:#fff;
-  text-decoration:none;font-weight:800;padding:13px;border-radius:9px}
-.coupon.locked.red .cta a{background:var(--red)}
-.coupon.locked .cta a:hover{filter:brightness(1.12)}
+  border-radius:8px;padding:12px 14px;margin-bottom:13px;color:#6b7788;font-size:.9rem;
+  font-weight:600;transition:background .45s ease,border-color .45s ease,color .45s ease}
+.coupon .lockrow .lk{font-size:1rem;opacity:.75}
+.coupon.unlocked .lockrow{display:flex;align-items:center;justify-content:space-between;
+  border:1px solid var(--line);background:var(--bg-2);color:#7a8698;
+  animation:codeIn .5s cubic-bezier(.2,.7,.2,1)}
+.coupon.unlocked .lockrow .lk{display:none}
+.coupon .lockrow .codeval{display:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:1rem;color:var(--ink);letter-spacing:.02em;font-weight:700}
+.coupon.unlocked .lockrow .codeval{display:inline}
+.coupon.unlocked .lockrow .lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;
+  color:#7a8698;font-weight:700}
+@keyframes codeIn{from{opacity:.2;transform:translateY(-3px)}to{opacity:1;transform:none}}
 
-/* photography */
-.photo{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-.photo img{width:100%;display:block}
-.photo figcaption{background:#fff;padding:10px 14px;font-size:.8rem;color:#7a8698;border-top:1px solid var(--line)}
-
-/* the email gate panel */
-.gate{background:linear-gradient(160deg,var(--navy) 0%,#101c56 100%);color:#e8edf7;border-radius:16px;
-  padding:42px 34px;text-align:center;box-shadow:var(--shadow)}
-.gate h2{color:#fff}
-.gate p{color:#c3cde6;max-width:56ch;margin:0 auto 1.6em}
-.gate .btn-call{font-size:1.1rem}
-.gate .fine{font-size:.82rem;color:#96a5c8;margin:1.3em auto 0}
-
-@media print{ .coupon.locked .lockrow,.coupon.locked .cta{display:none!important} }
+/* the embedded gate — no hop off the page */
+.gate form{max-width:520px;margin:0 auto}
+.gate .row2{display:grid;gap:10px;grid-template-columns:1fr 1.25fr;margin-bottom:12px}
+.gate input{width:100%;padding:15px 17px;border-radius:10px;border:2px solid transparent;
+  font-size:16px;font-family:inherit}
+.gate input:focus{outline:none;border-color:var(--red)}
+.gate .cf-turnstile{display:flex;justify-content:center;margin-bottom:12px;min-height:36px}
+.gate button{width:100%;padding:15px 28px;border:0;border-radius:10px;background:var(--red);
+  color:#fff;font-weight:800;font-size:1.02rem;font-family:inherit;cursor:pointer}
+.gate button:hover:not(:disabled){background:var(--red-2)}
+.gate button:disabled{opacity:.65;cursor:default}
+.gate .err{color:#ffb3b8;font-size:.9rem;margin:.9em 0 0;font-weight:600}
+.gate .done{display:none;background:rgba(28,124,74,.18);border:1px solid rgba(80,200,140,.5);
+  border-radius:12px;padding:22px;max-width:520px;margin:0 auto}
+.gate .done b{color:#fff;display:block;font-size:1.12rem;margin-bottom:.35em}
+.gate.sent form{display:none}
+.gate.sent .done{display:block}
+@media(max-width:620px){ .gate .row2{grid-template-columns:1fr} }
+@media print{ .gate,.coupon .lockrow .lbl{display:none!important} }

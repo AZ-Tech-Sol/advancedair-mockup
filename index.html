@@ -134,22 +134,38 @@
   <div class="wrap">
     <div class="center">
       <h2>This month&rsquo;s coupons</h2>
-      <p class="sub">Have them sent to your phone &mdash; codes and all &mdash; then mention the code when you schedule.</p>
+      <p class="sub">We&rsquo;ll email you a <b>printable coupon</b> for each one &mdash; print it, bring it in, or mention the code when you call.</p>
     </div>
+    <p class="noprint center" data-printbar hidden style="margin-bottom:22px">
+      <a class="btn btn-call" href="javascript:window.print()">🖨️ Print my coupons</a>
+    </p>
     <div class="coupons" id="coupons"></div>
     <p class="center" style="margin-top:28px">
-      <a class="btn btn-call" href="https://example.invalid/form">📧 Send me all three coupons</a>
+      <a class="btn btn-call" href="#contact">🖨️ Email me printable coupons</a>
     </p>
   </div>
 </section>
 
 <section class="alt" id="contact">
   <div class="wrap">
-    <div class="gate">
+    <div class="gate" data-gate>
       <h2>Get this month&rsquo;s coupons</h2>
-      <p>We send one email a month &mdash; the current coupons with their codes, a seasonal maintenance reminder, and nothing else. Unsubscribe in one click.</p>
-      <p><a class="btn btn-call" href="https://example.invalid/form">📧 Send me the coupons</a></p>
-      <p class="fine">We never share your address. One email a month, and you can leave any time.</p>
+      <p>We&rsquo;ll email you <b>printable coupons</b> for all three offers, then one email a month with the new ones and a seasonal maintenance reminder. Nothing else, and you can unsubscribe in one click.</p>
+      <form novalidate>
+        <div class="row2">
+          <input type="text" name="name" placeholder="First name" aria-label="First name" autocomplete="given-name">
+          <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+        </div>
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="flexible"></div>
+        <button type="submit">🖨️ Send my printable coupons</button>
+        <p class="err" data-err hidden></p>
+      </form>
+      <div class="done">
+        <b>Check your inbox.</b>
+        Your <b>printable coupons</b> are on the way to <span data-sentto>you</span>, and the codes have unlocked above.
+      </div>
+      <p class="fine">We never share your address. One email a month, and you can leave any time.<br>
+      In a hurry? Call <a href="tel:+15203499606" style="color:#fff">(520) 349-9606</a> &mdash; someone answers 24/7.</p>
     </div>
   </div>
 </section>
@@ -189,6 +205,7 @@
   </div>
 </footer>
 
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script src="js/coupons.js"></script>
 </body>
 </html>
