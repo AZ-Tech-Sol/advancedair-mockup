@@ -151,3 +151,11 @@ footer.site a{color:#c3cde6}
   .coupon .printphone{display:block;font-size:14pt;font-weight:900;color:#000;
     letter-spacing:-.01em;margin-bottom:5pt}
 }
+
+/* The mockup banner is review chrome, not the site — it must not eat the phone fold.
+   Verified at 390px: it was wrapping to three lines above the logo. */
+@media(max-width:560px){
+  .mockbar{font-size:.68rem;padding:5px 12px;line-height:1.35}
+  .mockbar .long{display:none}
+  .callbar{font-size:.85rem;padding:7px 12px}
+}
