@@ -159,3 +159,14 @@ footer.site a{color:#c3cde6}
   .mockbar .long{display:none}
   .callbar{font-size:.85rem;padding:7px 12px}
 }
+
+/* trust band */
+.split{display:grid;gap:38px;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));align-items:center}
+ul.ticks{list-style:none;margin:0 0 1.4em;padding:0}
+ul.ticks li{position:relative;padding-left:30px;margin-bottom:.7em}
+ul.ticks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--red);font-weight:900}
+.photoslot{border:2px dashed #c3ccda;border-radius:var(--r);background:#fff;min-height:300px;
+  display:grid;place-items:center;padding:30px;text-align:center}
+.photoslot .ps-ico{font-size:2.1rem;display:block;margin-bottom:10px;opacity:.6}
+.photoslot b{display:block;color:var(--ink);margin-bottom:.5em;font-size:1.05rem}
+.photoslot span{display:block;font-size:.92rem;color:#7a8698;max-width:34ch;margin:0 auto}
