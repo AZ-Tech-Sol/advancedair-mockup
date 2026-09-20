@@ -307,3 +307,25 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
 .gate.sent .done{display:block}
 @media(max-width:620px){ .gate .row2{grid-template-columns:1fr} }
 @media print{ .gate,.coupon .lockrow .lbl{display:none!important} }
+
+/* ---- gate form styling, matched to the site (Angel, 2026-09-20) ------------
+   The inputs were bare boxes on a navy panel and the Turnstile widget stretched
+   the full width. Both now sit in the same visual language as the rest. */
+.gate form{max-width:520px;margin:0 auto}
+.gate label{display:block;text-align:left;font-size:.8rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:#a9b8d8;margin:0 0 6px 2px}
+.gate input{width:100%;padding:15px 17px;border-radius:10px;
+  border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.96);
+  color:var(--ink);font-size:16px;font-family:inherit;
+  box-shadow:inset 0 1px 2px rgba(22,37,107,.08);transition:border-color .18s,box-shadow .18s}
+.gate input::placeholder{color:#93a0b4}
+.gate input:hover{border-color:rgba(255,255,255,.34)}
+.gate input:focus{outline:none;border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(216,38,46,.22),inset 0 1px 2px rgba(22,37,107,.08)}
+.gate .row2{display:grid;gap:12px;grid-template-columns:1fr 1.3fr;margin-bottom:14px;text-align:left}
+/* the widget is a fixed 300px box — centre it and never let it stretch */
+.gate .cf-turnstile{display:flex;justify-content:center;margin:0 0 14px;min-height:65px}
+.gate .cf-turnstile iframe{max-width:100%!important}
+.gate button{width:100%;padding:16px 28px;border:0;border-radius:10px;background:var(--red);
+  color:#fff;font-weight:800;font-size:1.04rem;font-family:inherit;cursor:pointer;
+  box-shadow:0 6px 20px rgba(216,38,46,.30)}

@@ -153,10 +153,12 @@
       <p>We&rsquo;ll email you <b>printable coupons</b> for all three offers, then one email a month with the new ones and a seasonal maintenance reminder. Nothing else, and you can unsubscribe in one click.</p>
       <form novalidate>
         <div class="row2">
-          <input type="text" name="name" placeholder="First name" aria-label="First name" autocomplete="given-name">
-          <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+          <div><label for="aa-name">First name</label>
+            <input id="aa-name" type="text" name="name" placeholder="Angela" autocomplete="given-name"></div>
+          <div><label for="aa-email">Email address</label>
+            <input id="aa-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
         </div>
-        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="flexible"></div>
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="normal"></div>
         <button type="submit">🖨️ Send my printable coupons</button>
         <p class="err" data-err hidden></p>
       </form>

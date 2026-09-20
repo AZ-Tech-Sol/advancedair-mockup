@@ -54,10 +54,12 @@
       <p>One short form and we&rsquo;ll email you all three as <b>printable coupons</b> &mdash; the $500 trade-in, the $59 service call and the $149 maintenance visit. Print them off, or mention the code when you call. The codes unlock on this page straight away too.</p>
       <form novalidate>
         <div class="row2">
-          <input type="text" name="name" placeholder="First name" aria-label="First name" autocomplete="given-name">
-          <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" autocomplete="email" required>
+          <div><label for="aa-name">First name</label>
+            <input id="aa-name" type="text" name="name" placeholder="Angela" autocomplete="given-name"></div>
+          <div><label for="aa-email">Email address</label>
+            <input id="aa-email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required></div>
         </div>
-        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="flexible"></div>
+        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-size="normal"></div>
         <button type="submit">🖨️ Send my printable coupons</button>
         <p class="err" data-err hidden></p>
       </form>
