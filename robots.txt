@@ -1,0 +1,4 @@
+# Mockup only — not the live Advanced Heating & Air website.
+# The live site is https://advancedairtucson.com
+User-agent: *
+Disallow: /

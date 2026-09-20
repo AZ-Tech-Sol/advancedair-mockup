@@ -1,0 +1,33 @@
+{
+  "_comment": "EDIT THIS FILE TO CHANGE THE COUPONS. No developer needed. Change the text, change the expiry, save. The site updates.",
+  "expires": "2026-12-31",
+  "expires_label": "Expires December 31, 2026",
+  "phone": "520-349-9606",
+  "terms": "Please mention this offer when you schedule. Call for details. One offer per household. Cannot be combined with other offers.",
+  "coupons": [
+    {
+      "id": "trade-in",
+      "amount": "$500",
+      "unit": "OFF",
+      "title": "System Trade-In",
+      "blurb": "Trading up to a new high-efficiency system? Take $500 off your installation.",
+      "accent": "navy"
+    },
+    {
+      "id": "service-call",
+      "amount": "$59",
+      "unit": "",
+      "title": "Service Call",
+      "blurb": "A certified technician at your door, diagnosing the problem — for $59.",
+      "accent": "red"
+    },
+    {
+      "id": "maintenance",
+      "amount": "$149",
+      "unit": "",
+      "title": "Maintenance Visit",
+      "blurb": "A full tune-up before the season turns. Catch the failure before it happens.",
+      "accent": "navy"
+    }
+  ]
+}
