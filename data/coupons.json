@@ -1,9 +1,9 @@
 {
-  "_comment": "EDIT THIS FILE TO CHANGE THE COUPONS. No developer needed. Change the text, change the expiry, save. The site updates.",
+  "_comment": "EDIT THIS FILE TO CHANGE THE COUPONS. No developer needed. Change the text, the code or the expiry, save, and the site updates. The 'code' on each coupon is how the office finds out which coupon produced the call \u2014 whoever answers writes it down.",
   "expires": "2026-12-31",
   "expires_label": "Expires December 31, 2026",
   "phone": "520-349-9606",
-  "terms": "Please mention this offer when you schedule. Call for details. One offer per household. Cannot be combined with other offers.",
+  "terms": "Mention this code when you schedule. Call for details. One offer per household. Cannot be combined with other offers.",
   "coupons": [
     {
       "id": "trade-in",
@@ -11,15 +11,17 @@
       "unit": "OFF",
       "title": "System Trade-In",
       "blurb": "Trading up to a new high-efficiency system? Take $500 off your installation.",
-      "accent": "navy"
+      "accent": "navy",
+      "code": "AHA-TRADE-500"
     },
     {
       "id": "service-call",
       "amount": "$59",
       "unit": "",
       "title": "Service Call",
-      "blurb": "A certified technician at your door, diagnosing the problem — for $59.",
-      "accent": "red"
+      "blurb": "A certified technician at your door, diagnosing the problem \u2014 for $59.",
+      "accent": "red",
+      "code": "AHA-SVC-59"
     },
     {
       "id": "maintenance",
@@ -27,7 +29,8 @@
       "unit": "",
       "title": "Maintenance Visit",
       "blurb": "A full tune-up before the season turns. Catch the failure before it happens.",
-      "accent": "navy"
+      "accent": "navy",
+      "code": "AHA-TUNE-149"
     }
   ]
 }

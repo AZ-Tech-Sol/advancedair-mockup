@@ -22,6 +22,7 @@
         '<p class="blurb">' + esc(c.blurb) + '</p>' +
         '<div class="cta noprint"><a href="tel:+1' + esc(data.phone).replace(/\D/g, '') + '">' +
           'Call ' + esc(data.phone) + '</a></div>' +
+        (c.code ? '<div class="code"><span>Mention code</span><b>' + esc(c.code) + '</b></div>' : '') +
         '<div class="foot">' +
           '<span class="printphone printonly">' + esc(data.phone) + '</span>' +
           '<span class="exp">' + esc(data.expires_label) + '</span><br>' +

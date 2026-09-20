@@ -170,3 +170,11 @@ ul.ticks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--red)
 .photoslot .ps-ico{font-size:2.1rem;display:block;margin-bottom:10px;opacity:.6}
 .photoslot b{display:block;color:var(--ink);margin-bottom:.5em;font-size:1.05rem}
 .photoslot span{display:block;font-size:.92rem;color:#7a8698;max-width:34ch;margin:0 auto}
+
+/* Redemption code — the office writes it down, and for the first time the coupons
+   become measurable. No software required on their side. */
+.coupon .code{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:1px solid var(--line);background:var(--bg-2);border-radius:8px;padding:9px 13px;margin-bottom:13px}
+.coupon .code span{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;color:#7a8698;font-weight:700}
+.coupon .code b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:1rem;color:var(--ink);letter-spacing:.02em}
+@media print{ .coupon .code{border:1px solid #000;background:#fff} .coupon .code b{font-size:12pt} }
