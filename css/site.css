@@ -353,3 +353,7 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
   cursor:pointer;padding:0;border-radius:4px;box-shadow:none}
 .gate .consent span{font-size:.92rem;line-height:1.5;color:#dfe7f6}
 .gate .cnote{display:block;margin-top:.5em;font-size:.9rem;color:#c3cde6}
+
+/* the consent row is a <label>, so it was inheriting the uppercase field-label style */
+.gate label.consent{text-transform:none;letter-spacing:normal;font-weight:400;color:inherit;margin:0 0 14px}
+.gate label.consent span{font-weight:500}
