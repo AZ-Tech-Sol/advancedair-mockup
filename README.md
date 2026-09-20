@@ -1,26 +1,59 @@
 # Advanced Heating & Air — site mockup
 
 A static mockup of a rebuilt advancedairtucson.com, for review before the client sees it.
-Prepared by AZ Technology Solutions, September 2026.
+Prepared by AZ Technology Solutions, 20 September 2026.
 
 **This is not the live site.** The live site is https://advancedairtucson.com and nothing here
-is published to it.
+is published to it. `robots.txt` and a `noindex` tag on every page keep it out of search so it
+cannot compete with the real site.
 
-## What it is
+**Live at:** https://djangelic.github.io/advancedair-mockup/
 
-- `index.html` — home page, ordered phone → service area → trust → everything else
-- `coupons.html` — the coupons page, which is the product rather than a page
-- `data/coupons.json` — **the offers and the expiry live here.** Edit this file, save, done.
-  No developer, no HTML.
-- `js/coupons.js` — renders the coupons from that file; the email signup is **mocked**
-  so the flow can be seen before a newsletter tool is chosen
-- `assets/` — the real logo and the original 2021 coupon images from the live site
+## Pages
 
-## Notes for review
+| file | what it is |
+|---|---|
+| `index.html` | Home. Ordered phone → service area → trust → everything else, because this is an emergency service. Their live site has no home page at all. |
+| `services.html` | Residential and commercial, written from their own copy. |
+| `coupons.html` | **The product.** Three offers as text cards with a print view. |
+| `contact.html` | Leads with the phone; the message form is mocked. |
+| `404.html` | Branded, and still offers the phone number. |
+| `brief.html` | **Internal.** The audit findings and the argument, for Angel — not linked from any client-facing page. |
 
-- The three offers are the real ones, read off the current site's coupon images.
-- The phone number **520-349-9606** is corroborated by the site's own About widget as well as
-  the coupons; still worth confirming with the client.
-- Office hours are marked "to be confirmed" because the live site does not state them.
-- `robots.txt` and a `noindex` meta tag keep this out of search so it cannot compete with
-  the live site.
+## Editing the coupons
+
+`data/coupons.json` holds the amounts, wording, redemption codes and the expiry.
+Change the file, save, and the site updates. No developer, no HTML.
+
+## What is deliberately mocked
+
+The newsletter signup and the contact form look and behave real but send nothing. The
+newsletter tool is undecided by ruling; the real contact form goes to an n8n webhook with a
+honeypot and a classifier, per the Off WordPress plan.
+
+## What the audit found
+
+- The coupons page was **three PNG screenshots from 5 August 2021** — invisible to search,
+  unreadable to a screen reader, uneditable without Photoshop.
+- **No redemption mechanism at all.** "Mention this ad" — no code, no tracking, no capture. Four
+  years of coupons with no way to know whether one ever produced a call. That is what the
+  `AHA-` codes fix.
+- The coupons **never expire**: `Expires 12/31/[wpsos_year]` rolls the year forward silently.
+- **No home page** — `show_on_front` is `posts`, so the site serves a blog roll.
+- Every page dates to **31 May 2012**. Theme is `alyeska`.
+- Their **Rheem badge links to a dead domain** (`advancedairtucson.myvirtualhvac.com`, HTTP 000).
+- The **ROC licence was buried in a sidebar widget**. It is in the hero and footer now.
+
+## Open questions for the client
+
+1. Is **520-349-9606** still the number they answer? Corroborated by the coupons and the site's
+   own About widget, but both are old.
+2. **Office hours** — the live site never states them, so the page says "to be confirmed".
+3. Does the **Tax Credits** page still matter? Federal HVAC credits have changed since 2012.
+4. **Photos** of the truck or crew. The only imagery in their library is dated Tempstar
+   manufacturer stock — a model in a competitor's polo — deliberately not used.
+
+## Not built
+
+Photography, a map on the contact page, an About page (the home page trust band absorbs most of
+what one would carry), and the live newsletter wiring.
