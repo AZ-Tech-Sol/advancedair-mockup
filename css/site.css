@@ -208,3 +208,32 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
 @media(max-width:560px){
   footer.site a[href^="tel:"]{display:block;text-align:center}
 }
+
+/* ---- LOCKED coupons (2026-09-20) ------------------------------------------
+   The offer is visible because that is the marketing; the CODE and the printable
+   coupon are not, because a visible coupon gets screenshotted and we never get the
+   address. The email is the mechanism, so the email is the only way to the code. */
+.coupon.locked .lockrow{display:flex;align-items:center;gap:10px;border:1px dashed #c3ccda;
+  background:repeating-linear-gradient(135deg,#f7f9fc,#f7f9fc 9px,#eef2f8 9px,#eef2f8 18px);
+  border-radius:8px;padding:12px 14px;margin-bottom:13px;color:#6b7788;font-size:.9rem;font-weight:600}
+.coupon.locked .lockrow .lk{font-size:1rem;opacity:.75}
+.coupon.locked .foot{border-top:1px solid var(--line);padding-top:11px;font-size:.8rem;color:#7a8698}
+.coupon.locked .cta a{display:block;text-align:center;background:var(--navy);color:#fff;
+  text-decoration:none;font-weight:800;padding:13px;border-radius:9px}
+.coupon.locked.red .cta a{background:var(--red)}
+.coupon.locked .cta a:hover{filter:brightness(1.12)}
+
+/* photography */
+.photo{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+.photo img{width:100%;display:block}
+.photo figcaption{background:#fff;padding:10px 14px;font-size:.8rem;color:#7a8698;border-top:1px solid var(--line)}
+
+/* the email gate panel */
+.gate{background:linear-gradient(160deg,var(--navy) 0%,#101c56 100%);color:#e8edf7;border-radius:16px;
+  padding:42px 34px;text-align:center;box-shadow:var(--shadow)}
+.gate h2{color:#fff}
+.gate p{color:#c3cde6;max-width:56ch;margin:0 auto 1.6em}
+.gate .btn-call{font-size:1.1rem}
+.gate .fine{font-size:.82rem;color:#96a5c8;margin:1.3em auto 0}
+
+@media print{ .coupon.locked .lockrow,.coupon.locked .cta{display:none!important} }
