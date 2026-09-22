@@ -357,3 +357,16 @@ footer.site a[rel="noopener"]{display:inline-block;padding:9px 0;min-height:40px
 /* the consent row is a <label>, so it was inheriting the uppercase field-label style */
 .gate label.consent{text-transform:none;letter-spacing:normal;font-weight:400;color:inherit;margin:0 0 14px}
 .gate label.consent span{font-weight:500}
+
+/* Employment application — same field look as the coupon gate */
+.capture.apply form{display:block;max-width:620px;margin:0 auto}
+.capture.apply .row2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:12px}
+.capture.apply input[type=text],.capture.apply input[type=tel],.capture.apply input[type=email],.capture.apply select,.capture.apply textarea{
+  width:100%;min-width:0;padding:15px 17px;border-radius:10px;border:2px solid transparent;font-size:1rem;font-family:inherit;background:#fff;color:var(--ink)}
+.capture.apply input[type=email],.capture.apply textarea{display:block;margin-bottom:12px}
+.capture.apply textarea{resize:vertical}
+.capture.apply select{margin-top:6px;appearance:auto}
+.capture.apply input:focus,.capture.apply select:focus,.capture.apply textarea:focus{outline:none;border-color:var(--red)}
+.capture.apply label{display:block;color:#c3cde6;font-size:.9rem;font-weight:600}
+.capture.apply label.file input{display:block;margin-top:6px;color:#e8edf7;font-size:.9rem;max-width:100%}
+.capture.apply button{width:100%;margin-top:16px}
