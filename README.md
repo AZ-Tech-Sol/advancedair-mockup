@@ -7,7 +7,7 @@ Prepared by AZ Technology Solutions, 20 September 2026.
 is published to it. `robots.txt` and a `noindex` tag on every page keep it out of search so it
 cannot compete with the real site.
 
-**Live at:** https://djangelic.github.io/advancedair-mockup/
+**Live at:** https://az-tech-sol.github.io/advancedair-mockup/
 
 ## Pages
 
