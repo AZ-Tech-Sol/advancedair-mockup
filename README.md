@@ -18,7 +18,6 @@ cannot compete with the real site.
 | `coupons.html` | **The product.** Three offers as text cards with a print view. |
 | `contact.html` | Leads with the phone; the message form is mocked. |
 | `404.html` | Branded, and still offers the phone number. |
-| `brief.html` | **Internal.** The audit findings and the argument, for Angel — not linked from any client-facing page. |
 
 ## Editing the coupons
 
