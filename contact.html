@@ -118,8 +118,7 @@
 </footer>
 
 <script>
-/* Mocked, like the newsletter signup. Nothing is sent. The real form goes to an
-   n8n webhook with a honeypot and a classifier, per the Off WordPress plan. */
+/* Mocked: nothing is sent from this form yet. */
 document.getElementById('contactform').addEventListener('submit', function (e) {
   e.preventDefault();
   var name = document.getElementById('cname');
